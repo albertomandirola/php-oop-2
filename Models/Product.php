@@ -3,7 +3,7 @@ class Product{
     public $brand;
     public $name;
     public $image;
-    private $price;
+    public $price;
     public $type;
 
     function __construct($_name, $_brand, $_image, $_price, $_type)
@@ -15,6 +15,8 @@ class Product{
         $this->type = $_type;
 
     }
+
+
     
 
 }
