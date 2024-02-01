@@ -2,10 +2,10 @@
 require __DIR__.'/Models/Product.php';
 require __DIR__.'/Models/Category.php';
 
-$dog = new Category("Dog");
-$cat = new Category("Cat");
-$bird = new Category("Bird");
-$fish = new Category("FIsh");
+$dog = new Category('Dog', 'fas fa-dog');
+$cat = new Category('Cat', 'fas fa-cat');
+$bird = new Category('Bird', 'fas fa-dove');
+$fish = new Category('Fish', 'fas fa-fish');
 
 $product_1 = new Cibo("light-food", "acana", "https://www.moby-dick.it/image/cache/data/Foto%20Prodotti/Cani/ACANA-reg-dog-pacifica-fr-xl-600x600.jpg", 25.90, "sterilizzato",$dog , ["pollo","verdura","omega-3","carni miste"], [15,100,23,45], ["tapioca","glutine"], 10);
 $product_2 = new Cibo("mass-food", "whiskas", "https://www.cicalia.com/it/img/imgproducts/64080/m_64080.jpg", 35, "tutti",$cat, ["tonno","verdura","omega-3","scarti pesce"], [14,111,23,5], "acciuga", 1.5);
@@ -25,6 +25,7 @@ $products = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
     ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
     <title>products</title>
 </head>
@@ -51,6 +52,7 @@ $products = [
                                             <li class="list-group-item"><?php echo "<b>{$product->brand}</b>";?></li>
                                             <li class="list-group-item"><?php echo "<b>Prezzo</b>: {$product->price}";?></li>
                                             <li class="list-group-item"><?php echo "<b>Ingredienti</b>: " . implode(",", $product->ingredients);?></li>
+                                            <li class="list-group-item"><?php echo "<b>Per</b>: " . $product->category->name. "<i class='{$product->category->icon}'></i>";?></li>
                                         </ul>
                                         <div class="card-body">
                                             <a href="#" class="card-link">productPlayer link</a>
